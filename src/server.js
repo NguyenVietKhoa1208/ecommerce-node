@@ -1,8 +1,8 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import morgan from 'morgan';
+const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const morgan = require('morgan');
 
 dotenv.config();
 
@@ -11,12 +11,10 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
-// Simple test route
 app.get('/', (req, res) => {
   res.json({ message: 'E-commerce API running...' });
 });
 
-// MongoDB connect
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
